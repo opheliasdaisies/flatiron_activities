@@ -1,6 +1,6 @@
-Organizing Nested Data
+# Organizing Nested Data
 
-I have a collection of Programming Languages.  
+# I have a collection of Programming Languages.  
 languages = {
   :oo => {
     :ruby => {
@@ -25,7 +25,7 @@ languages = {
     },
     :scala => {
       :type => "compiled"
-    }
+    },
     :javascript => {
       :type => "interpreted"
     }
@@ -33,16 +33,24 @@ languages = {
   }
 }
 
-I would like you to reformat the nested structure to be of the following form
+by_language = {}
+languages.each do |style, hash|
+  hash.each do |language, hash|
+    by_language[language] = hash
+  end
+end
+p by_language
 
-{
-  :ruby => {
-    :style => [:oo],
-    :type => "dynamic"
-  },
-  :python => {
-    :style => [:oo],
-    :type => "dynamic"
-  }
-  etc etc
-}
+# I would like you to reformat the nested structure to be of the following form
+
+# {
+#   :ruby => {
+#     :style => [:oo],
+#     :type => "dynamic"
+#   },
+#   :python => {
+#     :style => [:oo],
+#     :type => "dynamic"
+#   }
+#   etc etc
+# }
