@@ -4,8 +4,7 @@ def my_collect(array)
 	i = 0
 	new_array = []
 	while i < array.length
-		x = yield array[i]
-		new_array << x
+		new_array << (yield array[i])
 		i += 1
 	end
 	new_array
@@ -32,8 +31,7 @@ class Array
 		i = 0
 		new_array = []
 		while i < self.length
-			x = yield self[i]
-			new_array << x
+			new_array << (yield self[i])
 			i += 1
 		end
 		new_array
