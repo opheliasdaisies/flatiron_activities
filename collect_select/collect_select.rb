@@ -14,10 +14,7 @@ def my_select(array)
 	i = 0
 	new_array = []
 	while i < array.length
-		x = yield array[i]
-		if x == true
-			new_array << array[i]
-		end
+		new_array << array[i] if (yield array[i])
 		i += 1
 	end
 	new_array
@@ -41,10 +38,7 @@ class Array
 		i = 0
 		new_array = []
 		while i < self.length
-			x = yield self[i]
-			if x == true
-				new_array << self[i]
-			end
+			new_array << self[i] if (yield self[i])
 			i += 1
 		end
 		new_array
