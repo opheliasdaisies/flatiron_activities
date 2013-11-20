@@ -12,7 +12,16 @@ def my_collect(array)
 end
  
 def my_select(array)
-#
+	i = 0
+	new_array = []
+	while i < array.length
+		x = yield array[i]
+		if x == true
+			new_array << array[i]
+		end
+		i += 1
+	end
+	new_array
 end
  
 #CHALLENGE:
