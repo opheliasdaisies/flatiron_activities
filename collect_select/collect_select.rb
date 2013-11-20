@@ -26,3 +26,29 @@ end
  
 #CHALLENGE:
 #Implement these methods as instance methods on the array class.
+
+class Array
+	def my_collect
+		i = 0
+		new_array = []
+		while i < self.length
+			x = yield self[i]
+			new_array << x
+			i += 1
+		end
+		new_array
+	end
+	 
+	def my_select
+		i = 0
+		new_array = []
+		while i < self.length
+			x = yield self[i]
+			if x == true
+				new_array << self[i]
+			end
+			i += 1
+		end
+		new_array
+	end
+end
