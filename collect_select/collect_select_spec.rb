@@ -10,5 +10,10 @@ describe "#my_collect" do
 end
 
 describe "#my_select" do
-
+	it "should iterate through an array, and return all elements which meet a given condition." do
+		expect(my_select([1,2,3,4,5,6]){|item| item.even?}).to eq([2,4,6])
+	end
+	it "should iterate through an array, and return all elements which meet a given condition." do
+		expect(my_select([32,42,35,23,52,52,34,17,69]){|item| item > 35}).to eq([42,52,52,69])
+	end
 end
