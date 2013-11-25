@@ -35,16 +35,15 @@ languages = {
 
 by_language = {}
 languages.each do |style, hash|
-  hash.each do |language, hash|
-    by_language[language] = hash
+  hash.each do |language, hash2|
+    by_language[language] ||= {}
+    by_language[language][:style].nil? ? by_language[language][:style] = [style] : by_language[language][:style] << style
+    hash2.each do |type_key, type_value|
+      by_language[language][type_key] = type_value
+    end
   end
 end
-languages.each do |style, hash|
-  hash.each do |language, hash|
-    by_language[language][:style] ||= []
-    by_language[language][:style] << style
-  end
-end
+
 p by_language
 
 # I would like you to reformat the nested structure to be of the following form
